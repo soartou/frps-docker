@@ -1,8 +1,8 @@
 FROM alpine:edge
 
-COPY frps /usr/local/bin/
+RUN apk update && apk add tzdata \
+    && cp -r -f /usr/share/zoneinfo/Hongkong /etc/localtime \
+ADD frps /usr/local/bin/
 RUN chmod +x /usr/local/bin/frps
-RUN mkdir /etc/frp
-COPY frps.ini /etc/frp/
 
 CMD ["frps", "-c", "/etc/frp/frps.ini"]
