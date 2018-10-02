@@ -1,5 +1,4 @@
-FROM alpine:edge
-
+FROM alpine:latest
 RUN apk update && apk add tzdata wget
 RUN cp -r -f /usr/share/zoneinfo/Hongkong /etc/localtime
 #ADD frps /usr/local/bin/
